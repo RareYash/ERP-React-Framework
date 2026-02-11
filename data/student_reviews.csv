@@ -1,9 +1,103 @@
 Student Number,Student Name,Grade,Subject,Archetype,Teacher Review,NLP Analysis
-01,Sophia Chen,5th Grade,General,The Perfectionist,"Sophia is a conscientious, hard-working student who consistently exceeds expectations with the quality of her work. She tackles classroom assignments in an organized manner and shows great enthusiasm for learning. However, Sophia can be hard on herself when she does not grasp a new concept immediately. She is encouraged to view mistakes as learning opportunities rather than failures. Academically, she has an exceptional ability in mathematics and consistently produces high-quality work in art class. I appreciate her positive attitude and look forward to her continued growth.","The review is dominantly positive (Sentiment: 0.9), but contains a specific emotional flag regarding ""perfectionism."" The phrase ""can be hard on herself"" acts as a contrastive hedge—it is a negative psychological trait nested within high academic performance. The insight module must tag this as ""Emotional Resilience: Needs Support"" despite the high grade. The use of ""However"" introduces a pivot in sentiment that does not negate the previous praise but adds a dimension of concern."
+01,Sophia Chen,5th Grade,General,The Perfectionist,"Sophia is a conscientious, hard-working student who consistently exceeds expectations with the quality of her work. She tackles classroom assignments in an organized manner and shows great enthusiasm for learning. However, Sophia can be hard on herself when she does not grasp a new concept immediately. She is encouraged to view mistakes as learning opportunities rather than failures. Academically, she has an exceptional ability in mathematics and consistently produces high-quality work in art class. I appreciate her positive attitude and look forward to her continued growth.
+
+[2026-02-11 - Teacher]: very good student
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very bad student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she killed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal
+
+[2026-02-11 - Teacher]: very good student, she kissed the principal","The review is dominantly positive (Sentiment: 0.9), but contains a specific emotional flag regarding ""perfectionism."" The phrase ""can be hard on herself"" acts as a contrastive hedge—it is a negative psychological trait nested within high academic performance. The insight module must tag this as ""Emotional Resilience: Needs Support"" despite the high grade. The use of ""However"" introduces a pivot in sentiment that does not negate the previous praise but adds a dimension of concern."
 02,Liam O'Connor,8th Grade,History,The Natural Leader,"Liam is a natural leader who not only works well with his classmates but often takes the initiative to help others. He participates actively in class discussions, contributing valuable insights that enhance our learning environment. His critical thinking skills have greatly improved this term. While he is a strong student, Liam sometimes rushes through written assignments, resulting in careless errors. Checking his work thoroughly before submitting it would help him match his written output to his verbal intellect.","This profile exhibits the ""Competence Gap"" phenomenon. The text contrasts ""verbal intellect"" (High) with ""written output"" (Moderate/Low). The conditional phrase ""would help him match"" implies potential energy. The sentiment is positive (0.75), but the actionable insight is specifically ""Proofreading/Attention to Detail."" The module must extract ""careless errors"" as the key negative entity despite the ""natural leader"" label."
 03,Aisha Patel,4th Grade,Science,The Inquisitive Scientist,"Aisha demonstrates a high level of understanding in scientific concepts and is especially good at applying reasoning to experiments. She is inquisitive and highly interested in science topics, often asking thought-provoking questions. She works well independently but needs to practice showing cooperation when working with other students in lab groups. Occasionally, she tends to dominate the group direction. Developing a greater appreciation for the perspectives of her peers will make her an even stronger scientist.","This entry introduces ""Social Dominance"" as a negative trait within a high-achieving profile. The phrase ""tends to dominate"" is a polite coding for ""bossy."" The sentiment is mixed: Positive Academic / Negative Social. A standard sentiment model might miss the negativity of ""dominate"" in a leadership context; here, it is explicitly a request for ""cooperation."""
 04,Mateo Rivera,3rd Grade,Math,The Math Whiz,"Mateo has an exceptional ability in mathematics and has shown a strong grasp of complex concepts. He consistently delivers high-quality work and enjoys solving problems using various manipulatives. Mateo is a quick learner; however, he sometimes becomes impatient with classmates who require more time to understand the material. We are working on patience and empathy. He is a pleasure to have in class otherwise.","The review contains an ""Edge Case"" for sentiment analysis: ""impatient with classmates."" This is a behavioral issue stemming from high aptitude, not low. The module needs to distinguish this from behavioral issues caused by frustration with the material. The entity ""manipulatives"" anchors the grade level (elementary). The closer ""otherwise"" restricts the negative sentiment to the specific behavioral domain."
-05,Zoe Smith,6th Grade,Language Arts,The Creative Writer,"Zoe has a vast background knowledge of vocabulary and writes imaginative and creative stories. Her passion for reading is evident, and she frequently chooses suitably challenging reading material. While her creative writing is stellar, Zoe struggles with the structural mechanics of grammar and punctuation. She often neglects the editing process. With more attention to detail, her writing could be truly exemplary.","A classic ""Sandwich"": Praise (Creativity) -> Critique (Grammar) -> Praise (Potential). The insight module must identify ""Grammar/Punctuation"" as the specific deficiency. The phrase ""neglects the editing process"" is an attribution of effort rather than ability, which implies the intervention should be behavioral (checklist usage) rather than remedial instruction."
+05,Zoe Smith,6th Grade,Language Arts,The Creative Writer,"Zoe has a vast background knowledge of vocabulary and writes imaginative and creative stories. Her passion for reading is evident, and she frequently chooses suitably challenging reading material. While her creative writing is stellar, Zoe struggles with the structural mechanics of grammar and punctuation. She often neglects the editing process. With more attention to detail, her writing could be truly exemplary.
+
+[2026-02-11 - Teacher]: very good student","A classic ""Sandwich"": Praise (Creativity) -> Critique (Grammar) -> Praise (Potential). The insight module must identify ""Grammar/Punctuation"" as the specific deficiency. The phrase ""neglects the editing process"" is an attribution of effort rather than ability, which implies the intervention should be behavioral (checklist usage) rather than remedial instruction."
 06,Jackson Wright,7th Grade,Social Studies,The Debater,"Jackson is an enthusiastic learner who actively participates in class discussions. He expresses ideas clearly and has a deep understanding of the material. However, Jackson needs to work on active listening; he frequently interrupts peers during debates. He is encouraged to wait for others to finish before sharing his own (admittedly strong) opinions. He is capable of being a strong leader if he learns to value the contributions of others.","The parenthetical statement ""(admittedly strong)"" is a sophisticated linguistic feature. It validates the student's content while correcting the delivery. The NLP model must handle this nested sentiment. The key insight is ""Interrupts peers,"" which is a social-emotional learning (SEL) target. The conditional ""if he learns to"" sets a clear roadmap for the next term."
 07,Emily Johnson,2nd Grade,General,The Model Citizen,"Emily is a dependable, responsible, and conscientious student. She arrives at school each day with a positive attitude, ready to learn. She transitions easily between classroom activities without distraction and sets an example of excellence in behavior. Academically, she is making steady progress in all areas. She is a joy to teach.","This profile represents ""Unanimously Positive"" sentiment (Score: 0.95). The phrase ""Transitions easily"" is a high-value marker in early childhood education, indicating strong executive function. There is no ""but"" or ""however"" in this text, serving as a baseline control for the sentiment model."
 08,Noah Kim,High School,Physics,The Focused Scholar,"Noah consistently demonstrates a deep understanding of the scientific process. He applies critical thinking skills effectively to solve problems and analyze information. His lab reports are meticulous. Noah is a quiet student who tends to keep to himself; while his work is excellent, he would benefit from participating more in class discussions to share his valuable knowledge with peers.","The critique here (""participating more"") is a standard ""soft skill"" request for introverted high achievers. The NLP module should weight this less heavily than a behavioral critique like ""disruptive."" The phrase ""would benefit from"" acts as a gentle imperative."

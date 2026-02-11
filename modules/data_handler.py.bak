@@ -25,8 +25,7 @@ class DataHandler:
             DataFrame with all student reviews
         """
         try:
-            # Explicitly set dtype for 'Student Number' to string
-            df = pd.read_csv(_self.csv_path, dtype={'Student Number': str})
+            df = pd.read_csv(_self.csv_path)
             # Clean column names
             df.columns = df.columns.str.strip()
             return df
@@ -104,7 +103,7 @@ class DataHandler:
             True if successful, False otherwise
         """
         try:
-            df = pd.read_csv(self.csv_path, dtype={'Student Number': str})
+            df = pd.read_csv(self.csv_path)
             student_id = str(student_id).zfill(2)
             
             # Find student row
@@ -143,7 +142,7 @@ class DataHandler:
             True if successful, False otherwise
         """
         try:
-            df = pd.read_csv(self.csv_path, dtype={'Student Number': str})
+            df = pd.read_csv(self.csv_path)
             student_id = str(student_id).zfill(2)
             
             mask = df['Student Number'] == student_id
