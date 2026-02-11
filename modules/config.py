@@ -47,6 +47,10 @@ SENTIMENT_THRESHOLDS = {
 # User credentials (in production, use proper auth system)
 USERS: Dict[str, Dict[str, str]] = {
     "parent1": {"password": "pass1234", "role": "parent", "student_id": "01"},
+    "parent2": {"password": "pass1234", "role": "parent", "student_id": "02"},
+    "parent3": {"password": "pass1234", "role": "parent", "student_id": "03"},
+    "parent4": {"password": "pass1234", "role": "parent", "student_id": "04"},
+    "parent5": {"password": "pass1234", "role": "parent", "student_id": "05"},
     "teacher": {"password": "admin1234", "role": "teacher", "student_id": None}
 }
 
