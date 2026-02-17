@@ -2,7 +2,16 @@
 Authentication Module
 Simple role-based authentication for the application
 """
-import streamlit as st
+try:
+    import streamlit as st
+except ImportError:
+    class MockStreamlit:
+        session_state = {}
+        def warning(self, msg): pass
+        def error(self, msg): pass
+        def stop(self): raise Exception("Streamlit stop call in non-streamlit env")
+    st = MockStreamlit()
+
 from typing import Optional, Dict
 from modules.config import USERS
 
