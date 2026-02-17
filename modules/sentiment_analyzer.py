@@ -5,7 +5,16 @@ Advanced sentiment analysis with VADER and custom rules for educational context
 import re
 from typing import Dict, List, Tuple
 from collections import Counter
-import streamlit as st
+try:
+    import streamlit as st
+except ImportError:
+    # Create a dummyst object if streamlit is not available
+    class MockStreamlit:
+        def warning(self, msg): pass
+        def error(self, msg): pass
+        def info(self, msg): pass
+    st = MockStreamlit()
+
 
 try:
     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
