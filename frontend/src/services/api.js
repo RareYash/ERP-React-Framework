@@ -3,7 +3,7 @@
  * Centralised HTTP client for the FastAPI backend.
  */
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "";
 
 /**
  * Get the stored JWT token.
