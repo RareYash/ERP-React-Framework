@@ -47,6 +47,7 @@ ALLOWED_ORIGINS = [
     "http://localhost:5173",   # Vite dev server
     "http://127.0.0.1:5173",
     "http://localhost:3000",   # Fallback
+    "*",                       # Allow Vercel deployments
 ]
 
 app.add_middleware(
