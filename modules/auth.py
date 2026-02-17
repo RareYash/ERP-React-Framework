@@ -5,11 +5,24 @@ Simple role-based authentication for the application
 try:
     import streamlit as st
 except ImportError:
+    class MockSessionState(dict):
+        """Mock session state allowing attribute access"""
+        def __getattr__(self, key):
+            try:
+                return self[key]
+            except KeyError:
+                raise AttributeError(key)
+
+        def __setattr__(self, key, value):
+            self[key] = value
+
     class MockStreamlit:
-        session_state = {}
+        session_state = MockSessionState()
+        
         def warning(self, msg): pass
         def error(self, msg): pass
         def stop(self): raise Exception("Streamlit stop call in non-streamlit env")
+        
     st = MockStreamlit()
 
 from typing import Optional, Dict
