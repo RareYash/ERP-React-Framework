@@ -4,6 +4,10 @@ Add, edit, and view student reviews
 """
 import streamlit as st
 import pandas as pd
+import plotly.graph_objects as go
+import os
+import json
+import urllib.parse
 from modules.auth import AuthManager
 from modules.data_handler import DataHandler
 from modules.sentiment_analyzer import SentimentAnalyzer
@@ -245,3 +249,70 @@ def show_teacher_dashboard():
         
         fig3.update_layout(height=400)
         st.plotly_chart(fig3, use_container_width=True)
+
+    # Chatbot component (embedded directly)
+    if 'chat_history' not in st.session_state:
+        st.session_state.chat_history = []
+    
+    component_path = "chatbot_component" # Assuming chatbot_component is in the root
+
+    with open(os.path.join(component_path, 'index.html'), 'r') as f:
+        html_content = f.read()
+
+    with open(os.path.join(component_path, 'style.css'), 'r') as f:
+        css_content = f.read()
+
+    with open(os.path.join(component_path, 'script.js'), 'r') as f:
+        js_content = f.read()
+    
+    # Inject CSS into HTML
+    html_with_css = html_content.replace('<link rel="stylesheet" href="style.css">', f'<style>{css_content}</style>')
+    
+    # Inject chat history into JS and then into HTML
+    js_with_history = f"""
+        const chatHistory = {json.dumps(st.session_state.chat_history)};
+        {js_content}
+    """
+    final_html = html_with_css.replace('<script src="script.js"></script>', f'<script>{js_with_history}</script>')
+
+    st.components.v1.html(final_html, height=0)
+
+    # Handle query from chatbot
+    chatbot_query_param = st.query_params.get('chatbot_query', None)
+
+    if chatbot_query_param:
+        student_query = urllib.parse.unquote(chatbot_query_param)
+        
+        # Add user query to chat history
+        st.session_state.chat_history.append({"role": "user", "content": student_query})
+
+        # Process the query
+        student_data = data_handler.get_student_by_id(student_query)
+        if not student_data:
+            student_data = data_handler.get_student_by_name(student_query)
+
+        if student_data:
+            summary = summarizer.generate_summary(student_data)
+            
+            # Format the response as HTML
+            response_html = f"""
+                <h4>Analysis for {student_data['Student Name']} (ID: {student_data['Student Number']})</h4>
+                <p><b>Overall Assessment:</b> {summary['overall_sentiment']['label']} ({summary['overall_sentiment']['compound']:.2f})</p>
+                <p><b>Archetype:</b> {summary['archetype']}</p>
+                <p><b>Subject:</b> {student_data['Subject']}</p>
+                <h5>Summary Insights:</h5>
+                <p>{summary['summary_text']}</p>
+            """
+            st.session_state.chat_history.append({"role": "bot", "content": response_html})
+        else:
+            response_html = f"<p>Student with name or ID '{student_query}' not found.</p>"
+            st.session_state.chat_history.append({"role": "bot", "content": response_html})
+
+        # Clear the query parameter to avoid re-processing on subsequent reruns
+        if 'chatbot_query' in st.query_params:
+            del st.query_params['chatbot_query']
+        
+        st.rerun() # Rerun to update the chatbot with new history
+
+
+

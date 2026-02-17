@@ -1,0 +1,87 @@
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem var(--space-xl);
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.navbar-brand-icon {
+    font-size: 1.5rem;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+.navbar-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.navbar-role {
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.navbar-role-teacher {
+    background: var(--color-info-bg);
+    color: var(--color-info);
+}
+
+.navbar-role-parent {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.btn-logout {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-logout:hover {
+    background: rgba(239, 68, 68, 0.2);
+}

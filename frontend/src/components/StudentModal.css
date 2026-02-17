@@ -1,0 +1,235 @@
+/* =============================================
+   Student Profile Modal
+   ============================================= */
+
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-lg);
+}
+
+/* Content */
+.modal-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    max-width: 480px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Scale-in animation */
+.animate-scale-in {
+    animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-bg-elevated);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--color-danger);
+    color: #fff;
+    border-color: var(--color-danger);
+}
+
+/* Profile Header */
+.modal-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.modal-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+    background: var(--color-bg-elevated);
+}
+
+.modal-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.modal-id {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* Info Grid */
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.modal-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--space-md);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+}
+
+.modal-info-card:hover {
+    border-color: var(--color-primary-light);
+}
+
+.modal-info-icon {
+    font-size: 1.3rem;
+}
+
+.modal-info-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+}
+
+.modal-info-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.score-value {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Final Score */
+.modal-final-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    background: rgba(99, 102, 241, 0.06);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.modal-final-score>span:first-child {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+}
+
+.modal-final-score-value {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-reviews-count {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+/* Tags Section */
+.modal-tags-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.modal-tags-group h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-secondary);
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.modal-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+}
+
+.tag-positive {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+}
+
+.tag-neutral {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+}

@@ -1,13 +1,38 @@
 """
 Data Handler Module
-Handles all CSV operations with caching for performance
+Handles all CSV operations with caching for performance.
+Works in both Streamlit and standalone (FastAPI) contexts.
 """
 import pandas as pd
-import streamlit as st
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 from datetime import datetime
 from modules.config import REVIEWS_CSV
+
+# --- Streamlit-safe imports ---
+# Allow the module to work when Streamlit is not running (e.g. under FastAPI).
+try:
+    import streamlit as st
+    _HAS_STREAMLIT = hasattr(st, "runtime") and st.runtime.exists()
+except Exception:
+    _HAS_STREAMLIT = False
+
+
+def _report_error(msg: str):
+    """Show an error via Streamlit if available, otherwise raise."""
+    if _HAS_STREAMLIT:
+        st.error(msg)
+    else:
+        print(f"[DataHandler] {msg}")
+
+
+def _clear_cache():
+    """Clear the Streamlit data cache if available."""
+    if _HAS_STREAMLIT:
+        try:
+            st.cache_data.clear()
+        except Exception:
+            pass
 
 
 class DataHandler:
@@ -16,25 +41,24 @@ class DataHandler:
     def __init__(self, csv_path: Path = REVIEWS_CSV):
         self.csv_path = csv_path
         
-    @st.cache_data(ttl=300)  # Cache for 5 minutes
-    def load_reviews(_self) -> pd.DataFrame:
+    def load_reviews(self) -> pd.DataFrame:
         """
-        Load student reviews from CSV with caching
+        Load student reviews from CSV.
         
         Returns:
             DataFrame with all student reviews
         """
         try:
             # Explicitly set dtype for 'Student Number' to string
-            df = pd.read_csv(_self.csv_path, dtype={'Student Number': str})
+            df = pd.read_csv(self.csv_path, dtype={'Student Number': str})
             # Clean column names
             df.columns = df.columns.str.strip()
             return df
         except FileNotFoundError:
-            st.error(f"CSV file not found: {_self.csv_path}")
+            _report_error(f"CSV file not found: {self.csv_path}")
             return pd.DataFrame()
         except Exception as e:
-            st.error(f"Error loading CSV: {str(e)}")
+            _report_error(f"Error loading CSV: {str(e)}")
             return pd.DataFrame()
     
     def get_student_by_id(self, student_id: str) -> Optional[Dict[str, Any]]:
@@ -111,7 +135,7 @@ class DataHandler:
             mask = df['Student Number'] == student_id
             
             if not mask.any():
-                st.error(f"Student {student_id} not found")
+                _report_error(f"Student {student_id} not found")
                 return False
             
             # Append to existing review with timestamp
@@ -123,12 +147,12 @@ class DataHandler:
             df.to_csv(self.csv_path, index=False)
             
             # Clear cache
-            st.cache_data.clear()
+            _clear_cache()
             
             return True
             
         except Exception as e:
-            st.error(f"Error adding review: {str(e)}")
+            _report_error(f"Error adding review: {str(e)}")
             return False
     
     def update_review(self, student_id: str, new_review: str) -> bool:
@@ -149,19 +173,19 @@ class DataHandler:
             mask = df['Student Number'] == student_id
             
             if not mask.any():
-                st.error(f"Student {student_id} not found")
+                _report_error(f"Student {student_id} not found")
                 return False
             
             df.loc[mask, 'Teacher Review'] = new_review
             df.to_csv(self.csv_path, index=False)
             
             # Clear cache
-            st.cache_data.clear()
+            _clear_cache()
             
             return True
             
         except Exception as e:
-            st.error(f"Error updating review: {str(e)}")
+            _report_error(f"Error updating review: {str(e)}")
             return False
     
     def search_students(self, query: str) -> List[Dict[str, Any]]:
@@ -208,3 +232,42 @@ class DataHandler:
         """Get list of all unique archetypes"""
         df = self.load_reviews()
         return sorted(df['Archetype'].unique().tolist())
+
+    def update_student_details(
+        self, student_id: str, name: str = None, grade: str = None, archetype: str = None
+    ) -> bool:
+        """
+        Update student details (name, grade, archetype).
+
+        Args:
+            student_id: Student number
+            name: New name (optional)
+            grade: New grade (optional)
+            archetype: New archetype (optional)
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            df = pd.read_csv(self.csv_path, dtype={'Student Number': str})
+            student_id = str(student_id).zfill(2)
+            mask = df['Student Number'] == student_id
+
+            if not mask.any():
+                _report_error(f"Student {student_id} not found")
+                return False
+
+            if name is not None:
+                df.loc[mask, 'Student Name'] = name
+            if grade is not None:
+                df.loc[mask, 'Grade'] = grade
+            if archetype is not None:
+                df.loc[mask, 'Archetype'] = archetype
+
+            df.to_csv(self.csv_path, index=False)
+            _clear_cache()
+            return True
+
+        except Exception as e:
+            _report_error(f"Error updating student details: {str(e)}")
+            return False

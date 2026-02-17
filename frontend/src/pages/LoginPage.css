@@ -1,0 +1,273 @@
+/* =============================================
+   Login Page — Apna College-inspired hero
+   ============================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Hero Section --- */
+.login-hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) var(--space-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background gradient orbs */
+.login-hero::before,
+.login-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.login-hero::before {
+    width: 600px;
+    height: 600px;
+    background: var(--color-primary);
+    top: -200px;
+    right: -200px;
+}
+
+.login-hero::after {
+    width: 500px;
+    height: 500px;
+    background: var(--color-accent);
+    bottom: -200px;
+    left: -200px;
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Left: Branding --- */
+.login-branding {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-xl);
+}
+
+.login-brand-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.login-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.login-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-width: 420px;
+    line-height: 1.7;
+}
+
+.login-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.login-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.login-feature-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.login-feature-icon.purple {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.login-feature-icon.green {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.login-feature-icon.amber {
+    background: rgba(245, 158, 11, 0.15);
+}
+
+.login-feature-icon.blue {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.login-feature-text h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.login-feature-text p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Right: Login Form Card --- */
+.login-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.login-card-header {
+    text-align: center;
+}
+
+.login-card-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-xs);
+}
+
+.login-card-header p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.login-error {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-danger-bg);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--color-danger);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    flex: 1;
+    border-top: 1px solid var(--color-border);
+}
+
+.login-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+.login-demo-btn {
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.login-demo-btn:hover {
+    border-color: var(--color-primary-light);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-text);
+}
+
+.login-demo-btn strong {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--color-text);
+}
+
+/* --- Stats bar --- */
+.login-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3xl);
+    padding: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.login-stat {
+    text-align: center;
+}
+
+.login-stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.login-stat-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
+    .login-branding {
+        text-align: center;
+        align-items: center;
+    }
+
+    .login-title {
+        font-size: 2.2rem;
+    }
+
+    .login-features {
+        display: none;
+    }
+
+    .login-stats {
+        gap: var(--space-xl);
+    }
+}

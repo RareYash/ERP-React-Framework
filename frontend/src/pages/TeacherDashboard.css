@@ -1,0 +1,262 @@
+/* =============================================
+   Teacher Dashboard — Additional Styles
+   ============================================= */
+
+/* --- Tabs --- */
+.dashboard-tabs {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-sm);
+}
+
+.tab-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--color-text);
+}
+
+.tab-btn.active {
+    color: var(--color-primary-light);
+    border-bottom-color: var(--color-primary);
+}
+
+/* --- Student Table --- */
+.student-table-container {
+    overflow-x: auto;
+    margin-bottom: var(--space-2xl);
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.student-table th,
+.student-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.student-table th {
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(30, 41, 59, 0.5);
+    position: sticky;
+    top: 0;
+}
+
+.student-table tr:hover td {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.student-table .clickable {
+    cursor: pointer;
+}
+
+.student-table .clickable:hover {
+    color: var(--color-primary-light);
+}
+
+/* --- Review Form --- */
+.review-form-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.review-form-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+}
+
+.review-form-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+/* --- Sentiment Preview --- */
+.sentiment-preview {
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(99, 102, 241, 0.05);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+.sentiment-preview-score {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.sentiment-preview-details {
+    display: flex;
+    gap: var(--space-lg);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- Filter Bar --- */
+.filter-bar {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-bar .form-input,
+.filter-bar .form-select {
+    min-width: 180px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* --- Analytics Cards --- */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.sentiment-dist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.sentiment-dist-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.sentiment-dist-label {
+    width: 120px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.sentiment-dist-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.sentiment-dist-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-smooth);
+}
+
+.sentiment-dist-count {
+    width: 30px;
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- Status messages --- */
+.status-message {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Review Timeline --- */
+.review-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.timeline-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    transition: all var(--transition-fast);
+}
+
+.timeline-item:hover {
+    border-color: var(--color-primary-light);
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.timeline-date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.timeline-teacher {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.timeline-text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* --- Clickable Analytics Cards --- */
+.clickable-card {
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.clickable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.clickable-card.card-active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
